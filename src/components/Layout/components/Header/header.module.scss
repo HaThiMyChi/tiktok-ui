@@ -23,9 +23,12 @@
 
 }
 
+.search, .search-result {
+    width: 361px;
+}
+
 .search {
     position: relative;
-    width: 361px;
     height: var(--search-height);
     padding-left: 16px;
     background-color: rgba(22, 24, 35, 0.06);
@@ -61,6 +64,7 @@
         border-color: rgba(22, 24, 35, 0.2);
     }
 }
+
 
 .clear, .loading {
     position: absolute;
