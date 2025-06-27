@@ -3,7 +3,7 @@ import styles from './header.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faEllipsisVertical, faMagnifyingGlass, faEarthAsia, faSpinner, faCircleQuestion, faKeyboard, faCloudUpload,
+import { faCircleXmark, faEllipsisVertical, faMagnifyingGlass, faEarthAsia, faSpinner, faCircleQuestion, faKeyboard,
     faUser, faSignOut, faGear, faCoins
  } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
@@ -13,7 +13,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -138,7 +139,7 @@ function Header() {
                     {currentUser ? (
                         <Tippy delay={[0, 200]} content="Upload video" placement='bottom'>
                             <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faCloudUpload} />
+                               <UploadIcon />
                             </button>
                         </Tippy>
                     ) : (
@@ -150,9 +151,9 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img 
+                            <Image 
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/15c8639380cc677ebef870ef9f7e1f3f~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=cff96203&x-expires=1750932000&x-signature=AI4wlZkeAc9kBHaFc8Ii3uleS30%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"
+                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
                                 alt="Nguyen Van A"
                             />
                         ) : (
