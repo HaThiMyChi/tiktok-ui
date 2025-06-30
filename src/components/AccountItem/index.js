@@ -2,6 +2,7 @@ import classNames from "classnames/bind";
 import styles from './AccountItem.module.scss';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from "../Image";
 
 const cx = classNames.bind(styles);
 
@@ -9,7 +10,11 @@ const cx = classNames.bind(styles);
 function AccountItem() {
     return ( 
         <div className={cx('wrapper')}>
-            <img className={cx('avatar')} src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/15c8639380cc677ebef870ef9f7e1f3f~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=cff96203&x-expires=1750932000&x-signature=AI4wlZkeAc9kBHaFc8Ii3uleS30%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my" alt="Hoa" />
+            <Image 
+                className={cx('avatar')} 
+                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/ea0854578085ab26effc2c7b8cefa270~c5_300x300.webp?x-expires=1651489200&x-signature=Xp8iH14MDegegBpFEg%2Fg5rv6Mrw%3D" 
+                alt="Hoa" 
+            />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
                     <span>Nguyen Van A</span>
