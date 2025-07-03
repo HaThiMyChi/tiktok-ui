@@ -10,6 +10,8 @@ import { SearchIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import { useDebounce } from '~/hooks';
+import * as searchServices from '~/apiServices/searchServices';
+
 
 
 const cx = classNames.bind(styles);
@@ -25,27 +27,25 @@ function Search() {
     // 3. 'ho'
     // 4. 'hoa'
     // khi mà gõ chữ "h" ở search value thì dependency của value nó thay đổi thì mới chạy vào hàm useEffect
-    const debounce = useDebounce(searchValue, 500);
+    const debounced = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debounce.trim()) {
+        if (!debounced.trim()) {
             setSearchResult([]);
             return;
         }
 
-        setLoading(true);
+        const fetchApi = async () => {
+            setLoading(true);
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
+            setLoading(false);
+        };
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            }).catch(() => {
-                setLoading(false);
-            }) 
-    }, [debounce]);
+        fetchApi();
+    }, [debounced]);
 
     const handleClear = () => {
         setSearchValue('');
