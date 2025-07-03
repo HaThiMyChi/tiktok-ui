@@ -9,6 +9,8 @@ import { faCircleXmark, faSpinner} from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
+import { useDebounce } from '~/hooks';
+
 
 const cx = classNames.bind(styles);
 
@@ -18,16 +20,24 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
+    // 1. ''
+    // 2. 'h'
+    // 3. 'ho'
+    // 4. 'hoa'
+    // khi mà gõ chữ "h" ở search value thì dependency của value nó thay đổi thì mới chạy vào hàm useEffect
+    const debounce = useDebounce(searchValue, 500);
+
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debounce.trim()) {
             setSearchResult([]);
             return;
         }
 
         setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 setSearchResult(res.data);
@@ -35,7 +45,7 @@ function Search() {
             }).catch(() => {
                 setLoading(false);
             }) 
-    }, [searchValue]);
+    }, [debounce]);
 
     const handleClear = () => {
         setSearchValue('');
