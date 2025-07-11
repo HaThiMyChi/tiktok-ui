@@ -8,7 +8,7 @@ import { faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard,
 import Tippy from '@tippyjs/react';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import { UploadIcon } from '~/components/Icons';
+import { UploadIcon } from '~/components/Icons/Icons';
 import Image from '~/components/Image';
 import Search from '~/components/Search';
 import { Link } from 'react-router-dom';
