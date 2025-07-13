@@ -4,7 +4,7 @@ import styles from './Menu.module.scss';
 import {Wrapper as PopperWrapper} from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
-import { use, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
