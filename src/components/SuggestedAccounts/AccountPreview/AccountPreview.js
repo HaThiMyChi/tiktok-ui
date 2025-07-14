@@ -13,7 +13,7 @@ function AccountPreview() {
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
                 <img className={cx('avatar')} src="https://files.fullstack.edu.vn/f8-tiktok/users/5321/657d63081d19a.jpg" alt="" />
-                <Button primary>Follow</Button>
+                <Button className={cx('follow-btn')} primary small>Follow</Button>
             </div>
             
             <div className={cx('body')}>
@@ -23,9 +23,9 @@ function AccountPreview() {
                 </p>
                 <p className={cx('name')}>Quốc Nguyễn Phú</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>8.2M</strong>
+                    <strong className={cx('value')}>8.2M </strong>
                     <span className={cx('label')}>Followers</span>
-                    <strong className={cx('value')}>8.2M</strong>
+                    <strong className={cx('value')}>8.2M </strong>
                     <span className={cx('label')}>Likes</span>
                 </p>
             </div>
